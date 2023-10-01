@@ -1,6 +1,48 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class Feature(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True, null=True)
+    icon = models.ImageField(upload_to='feature_icons/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+class VariantImage(models.Model):
+    image = models.ImageField(upload_to='variant_images/')
+    alt_text = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return f"Image {self.id}"
+
+class Interest(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+class Skill(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    proficiency_choices = [
+        ('Beginner', 'Beginner'),
+        ('Intermediate', 'Intermediate'),
+        ('Advanced', 'Advanced'),
+        ('Expert', 'Expert'),
+    ]
+    proficiency_level = models.CharField(
+        max_length=15,
+        choices=proficiency_choices,
+        default='Beginner',
+    )
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True)
@@ -191,3 +233,105 @@ class Ownership(models.Model):
 
     def __str__(self):
         return f"Ownership of {self.product.name} by {self.user.username}"
+    
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True, null=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    website = models.URLField(blank=True, null=True)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
+    social_media_links = models.JSONField(blank=True, null=True)  # Store social media links as JSON
+    skills = models.ManyToManyField('Skill', related_name='user_profiles', blank=True)
+    interests = models.ManyToManyField('Interest', related_name='user_profiles', blank=True)
+    
+    def __str__(self):
+        return self.user.username
+
+
+class ProductVariant(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    price_modifier = models.DecimalField(max_digits=10, decimal_places=2)
+    stock_quantity = models.PositiveIntegerField(default=0)
+    size = models.CharField(max_length=10, blank=True, null=True)
+    color = models.CharField(max_length=20, blank=True, null=True)
+    images = models.ManyToManyField('VariantImage', related_name='variants', blank=True)
+    features = models.ManyToManyField('Feature', related_name='variants', blank=True)
+    weight = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    
+    def __str__(self):
+        return f"{self.product.name} - {self.name}"
+
+
+class ProductReview(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.PositiveIntegerField()  # Rating scale (e.g., 1 to 5)
+    review_text = models.TextField()
+    review_date = models.DateTimeField(auto_now_add=True)
+    pros = models.TextField(blank=True, null=True)
+    cons = models.TextField(blank=True, null=True)
+    helpful_count = models.PositiveIntegerField(default=0)
+    
+    def __str__(self):
+        return f"{self.product.name} - {self.user.username}"
+
+
+class WishlistItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    added_date = models.DateTimeField(auto_now_add=True)
+    notes = models.TextField(blank=True, null=True)
+    priority = models.PositiveIntegerField(default=1)  # Add priority for wishlist items
+    custom_fields = models.JSONField(blank=True, null=True)  # Store custom data as JSON
+    
+    def __str__(self):
+        return f"{self.user.username} - {self.product.name}"
+
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class PaymentTransaction(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    transaction_date = models.DateTimeField(auto_now_add=True)
+    transaction_id = models.CharField(max_length=255, unique=True)
+    payment_method = models.CharField(max_length=50)
+    status = models.CharField(max_length=20, default="Pending")
+    # Add other fields as needed for payment information
+    
+    def __str__(self):
+        return f"Transaction by {self.user.username} - {self.transaction_id}"
+
+
+class PaymentInformation(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    card_number = models.CharField(max_length=16, blank=True, null=True)
+    expiration_date = models.DateField(blank=True, null=True)
+    cvv = models.CharField(max_length=4, blank=True, null=True)
+    paypal_email = models.EmailField(blank=True, null=True)
+    billing_address = models.TextField(blank=True, null=True)
+    payment_history = models.ManyToManyField('PaymentTransaction', related_name='payment_informations', blank=True)
+    preferred_payment_method = models.CharField(max_length=50, blank=True, null=True)
+    
+    def __str__(self):
+        return self.user.username
+
+
+class Notification(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    notification_date = models.DateTimeField(auto_now_add=True)
+    is_read = models.BooleanField(default=False)
+    notification_type = models.CharField(max_length=20, blank=True, null=True)  # Type of notification
+    sender = models.ForeignKey(User, related_name='sent_notifications', on_delete=models.CASCADE, blank=True, null=True)
+    related_product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True)
+    
+    def __str__(self):
+        return f"{self.user.username} - {self.notification_date}"
+
+
