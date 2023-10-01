@@ -25,10 +25,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-class Ownership(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    purchase_date = models.DateTimeField(auto_now_add=True)
+
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -178,8 +175,19 @@ class SerialNumber(models.Model):
 
 class UserStorage(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    owned_products = models.ManyToManyField(Product, through='Ownership', related_name='owners', blank=True)
-    serial_numbers_vault = models.ManyToManyField(SerialNumber, related_name='owners', blank=True)
+    owned_products = models.ManyToManyField(Product, through='Ownership', related_name='user_storages')
+    serial_numbers_vault = models.ManyToManyField(SerialNumber, related_name='user_storages')
 
     def __str__(self):
         return f"User Storage - {self.user.username}"
+
+
+class Ownership(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    serial_number = models.ForeignKey(SerialNumber, on_delete=models.CASCADE)
+    purchase_date = models.DateTimeField(auto_now_add=True)
+    user_storage = models.ForeignKey(UserStorage, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Ownership of {self.product.name} by {self.user.username}"
