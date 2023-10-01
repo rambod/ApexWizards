@@ -10,12 +10,14 @@ class Feature(models.Model):
     def __str__(self):
         return self.name
 
+
 class VariantImage(models.Model):
     image = models.ImageField(upload_to='variant_images/')
     alt_text = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return f"Image {self.id}"
+
 
 class Interest(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -24,9 +26,10 @@ class Interest(models.Model):
     def __str__(self):
         return self.name
 
+
 class Skill(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    proficiency_choices = [
+    PROFICIENCY_CHOICES = [
         ('Beginner', 'Beginner'),
         ('Intermediate', 'Intermediate'),
         ('Advanced', 'Advanced'),
@@ -34,7 +37,7 @@ class Skill(models.Model):
     ]
     proficiency_level = models.CharField(
         max_length=15,
-        choices=proficiency_choices,
+        choices=PROFICIENCY_CHOICES,
         default='Beginner',
     )
     description = models.TextField(blank=True, null=True)
@@ -49,6 +52,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -68,13 +72,13 @@ class Product(models.Model):
         return self.name
 
 
-
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Cart - {self.user.username}"
+
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
@@ -84,10 +88,17 @@ class CartItem(models.Model):
     def __str__(self):
         return f"CartItem - {self.product.name} ({self.quantity})"
 
+
 class Order(models.Model):
+    STATUS_CHOICES = [
+        ('Processing', 'Processing'),
+        ('Shipped', 'Shipped'),
+        ('Completed', 'Completed'),
+    ]
+    
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=255)
+    status = models.CharField(max_length=255, choices=STATUS_CHOICES, default='Processing')
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     payment_method = models.CharField(max_length=255)
     shipping_address = models.TextField()
@@ -99,6 +110,7 @@ class Order(models.Model):
     def __str__(self):
         return f"Order - #{self.id} ({self.user.username})"
 
+
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -107,6 +119,7 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"OrderItem - {self.product.name} ({self.quantity})"
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=255)
@@ -119,6 +132,7 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
 
+
 class Comment(models.Model):
     blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -130,6 +144,7 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment by {self.user.username}"
 
+
 class Follower(models.Model):
     user = models.ForeignKey(User, related_name='followers', on_delete=models.CASCADE)
     follower = models.ForeignKey(User, related_name='following', on_delete=models.CASCADE)
@@ -137,6 +152,7 @@ class Follower(models.Model):
 
     def __str__(self):
         return f"{self.follower.username} follows {self.user.username}"
+
 
 class Message(models.Model):
     sender = models.ForeignKey(User, related_name='sent_messages', on_delete=models.CASCADE)
@@ -146,6 +162,7 @@ class Message(models.Model):
 
     def __str__(self):
         return f"Message from {self.sender.username} to {self.receiver.username}"
+
 
 class ProjectProposal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -158,6 +175,7 @@ class ProjectProposal(models.Model):
     def __str__(self):
         return f"Proposal - {self.project_name} by {self.user.username}"
 
+
 class ContactSubmission(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.CharField(max_length=255)
@@ -169,6 +187,7 @@ class ContactSubmission(models.Model):
     def __str__(self):
         return f"Submission - {self.subject} by {self.user.username}"
 
+
 class OpenSourceProject(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
@@ -177,6 +196,7 @@ class OpenSourceProject(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class ProductRating(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -187,6 +207,7 @@ class ProductRating(models.Model):
     def __str__(self):
         return f"Rating ({self.rating}) by {self.user.username}"
 
+
 class CommentRating(models.Model):
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -196,12 +217,14 @@ class CommentRating(models.Model):
     def __str__(self):
         return f"{'Like' if self.is_like else 'Dislike'} by {self.user.username}"
 
+
 class Device(models.Model):
     name = models.CharField(max_length=255)
     # Add other fields to store device information as needed
 
     def __str__(self):
         return self.name
+
 
 class SerialNumber(models.Model):
     serial_key = models.CharField(max_length=255, unique=True)
@@ -214,6 +237,7 @@ class SerialNumber(models.Model):
 
     def __str__(self):
         return f"Serial Number - {self.serial_key}"
+
 
 class UserStorage(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -233,7 +257,7 @@ class Ownership(models.Model):
 
     def __str__(self):
         return f"Ownership of {self.product.name} by {self.user.username}"
-    
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -244,9 +268,9 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     social_media_links = models.JSONField(blank=True, null=True)  # Store social media links as JSON
-    skills = models.ManyToManyField('Skill', related_name='user_profiles', blank=True)
-    interests = models.ManyToManyField('Interest', related_name='user_profiles', blank=True)
-    
+    skills = models.ManyToManyField(Skill, related_name='user_profiles', blank=True)
+    interests = models.ManyToManyField(Interest, related_name='user_profiles', blank=True)
+
     def __str__(self):
         return self.user.username
 
@@ -258,10 +282,10 @@ class ProductVariant(models.Model):
     stock_quantity = models.PositiveIntegerField(default=0)
     size = models.CharField(max_length=10, blank=True, null=True)
     color = models.CharField(max_length=20, blank=True, null=True)
-    images = models.ManyToManyField('VariantImage', related_name='variants', blank=True)
-    features = models.ManyToManyField('Feature', related_name='variants', blank=True)
+    images = models.ManyToManyField(VariantImage, related_name='variants', blank=True)
+    features = models.ManyToManyField(Feature, related_name='variants', blank=True)
     weight = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    
+
     def __str__(self):
         return f"{self.product.name} - {self.name}"
 
@@ -275,7 +299,7 @@ class ProductReview(models.Model):
     pros = models.TextField(blank=True, null=True)
     cons = models.TextField(blank=True, null=True)
     helpful_count = models.PositiveIntegerField(default=0)
-    
+
     def __str__(self):
         return f"{self.product.name} - {self.user.username}"
 
@@ -287,13 +311,10 @@ class WishlistItem(models.Model):
     notes = models.TextField(blank=True, null=True)
     priority = models.PositiveIntegerField(default=1)  # Add priority for wishlist items
     custom_fields = models.JSONField(blank=True, null=True)  # Store custom data as JSON
-    
+
     def __str__(self):
         return f"{self.user.username} - {self.product.name}"
 
-
-from django.db import models
-from django.contrib.auth.models import User
 
 class PaymentTransaction(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -301,9 +322,13 @@ class PaymentTransaction(models.Model):
     transaction_date = models.DateTimeField(auto_now_add=True)
     transaction_id = models.CharField(max_length=255, unique=True)
     payment_method = models.CharField(max_length=50)
-    status = models.CharField(max_length=20, default="Pending")
-    # Add other fields as needed for payment information
-    
+    STATUS_CHOICES = [
+        ('Pending', 'Pending'),
+        ('Completed', 'Completed'),
+        ('Failed', 'Failed'),
+    ]
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Pending")
+
     def __str__(self):
         return f"Transaction by {self.user.username} - {self.transaction_id}"
 
@@ -315,9 +340,9 @@ class PaymentInformation(models.Model):
     cvv = models.CharField(max_length=4, blank=True, null=True)
     paypal_email = models.EmailField(blank=True, null=True)
     billing_address = models.TextField(blank=True, null=True)
-    payment_history = models.ManyToManyField('PaymentTransaction', related_name='payment_informations', blank=True)
+    payment_history = models.ManyToManyField(PaymentTransaction, related_name='payment_informations', blank=True)
     preferred_payment_method = models.CharField(max_length=50, blank=True, null=True)
-    
+
     def __str__(self):
         return self.user.username
 
@@ -330,8 +355,7 @@ class Notification(models.Model):
     notification_type = models.CharField(max_length=20, blank=True, null=True)  # Type of notification
     sender = models.ForeignKey(User, related_name='sent_notifications', on_delete=models.CASCADE, blank=True, null=True)
     related_product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True)
-    
+
     def __str__(self):
         return f"{self.user.username} - {self.notification_date}"
-
 
