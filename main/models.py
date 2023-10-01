@@ -49,9 +49,11 @@ class Skill(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True)
+    parent_category = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
 
 
 class Product(models.Model):
@@ -259,6 +261,15 @@ class Ownership(models.Model):
         return f"Ownership of {self.product.name} by {self.user.username}"
 
 
+class UserPreferences(models.Model):
+    theme_choice = models.CharField(max_length=255, blank=True, null=True)
+    notification_preferences = models.JSONField(blank=True, null=True)
+    email_notification_settings = models.JSONField(blank=True, null=True)
+
+    def __str__(self):
+        return "User Preferences"
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
@@ -270,9 +281,12 @@ class UserProfile(models.Model):
     social_media_links = models.JSONField(blank=True, null=True)  # Store social media links as JSON
     skills = models.ManyToManyField(Skill, related_name='user_profiles', blank=True)
     interests = models.ManyToManyField(Interest, related_name='user_profiles', blank=True)
+    preferences = models.OneToOneField(UserPreferences, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
+    
+
 
 
 class ProductVariant(models.Model):
@@ -285,9 +299,12 @@ class ProductVariant(models.Model):
     images = models.ManyToManyField(VariantImage, related_name='variants', blank=True)
     features = models.ManyToManyField(Feature, related_name='variants', blank=True)
     weight = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    sku = models.CharField(max_length=255, blank=True, null=True)
+    barcode = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return f"{self.product.name} - {self.name}"
+
 
 
 class ProductReview(models.Model):
@@ -302,6 +319,18 @@ class ProductReview(models.Model):
 
     def __str__(self):
         return f"{self.product.name} - {self.user.username}"
+
+class ShippingAddress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    address = models.TextField()
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    postal_code = models.CharField(max_length=10)
+    country = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=15)
+
+    def __str__(self):
+        return f"Shipping Address for {self.user.username}"
 
 
 class WishlistItem(models.Model):
