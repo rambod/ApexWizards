@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block title %}Hello{% endblock title %}
+{% block content %} 
+
+<p class = "text-3xl">{{test}}</p>
+
+{% for item in test %}
+{% if item == 4 %}
+<p>its dividable to 4</p>
+{% else %}
+    <p class = "text-3xl">{{item}}</p>
+{% endif %}
+{% endfor %}
+
+
+{% endblock content %}
