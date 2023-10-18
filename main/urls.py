@@ -44,7 +44,7 @@ router.register(r'payment-informations', PaymentInformationViewSet)
 router.register(r'notifications', NotificationViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('main', main, name="main"),    
     path('', main, name="main"),  
     path('test/', test_page),  
