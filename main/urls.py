@@ -1,8 +1,13 @@
 
+<<<<<<< HEAD
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import *
 from .views import main
+=======
+from django.urls import path
+from .views import main , test_page
+>>>>>>> ad96b624c1f79ccccc430dbfe5c8675826081a95
 
 
 router = DefaultRouter()
@@ -40,7 +45,12 @@ router.register(r'payment-informations', PaymentInformationViewSet)
 router.register(r'notifications', NotificationViewSet)
 
 urlpatterns = [
+<<<<<<< HEAD
     path('', include(router.urls)),
     path('main', main, name="main"),    
 
+=======
+    path('', main, name="main"),  
+    path('test/', test_page),  
+>>>>>>> ad96b624c1f79ccccc430dbfe5c8675826081a95
 ]

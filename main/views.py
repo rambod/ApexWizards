@@ -4,6 +4,7 @@ from django.shortcuts import render
 def main(request):
     return render(request, 'main/index.html')
 
+<<<<<<< HEAD
 
 from rest_framework import viewsets
 from .models import *
@@ -136,3 +137,10 @@ class PaymentInformationViewSet(viewsets.ModelViewSet):
 class NotificationViewSet(viewsets.ModelViewSet):
     queryset = Notification.objects.all()
     serializer_class = NotificationSerializer
+=======
+def test_page(request):
+    context = {
+        'test' : [1,2,3,4,5,6],
+    }
+    return render(request, 'main/test.html',context=context)
+>>>>>>> ad96b624c1f79ccccc430dbfe5c8675826081a95
