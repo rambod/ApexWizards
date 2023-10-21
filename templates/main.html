@@ -7,14 +7,13 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        Test Page
-        {% block content %} {% endblock %}
+
 
         <div class="bg-indigo-50">
             <header>
                 <nav class="bg-indigo-50 border-gray-200 px-4 lg:px-6 py-2.5">
                     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                        <a href="#" class="flex items-center"><span class="text-indigo-600 self-center text-xl font-semibold whitespace-nowrap">TechHub</span></a>
+                        <a href="#" class="flex items-center"><span class="text-indigo-600 self-center text-xl font-semibold whitespace-nowrap">ApexWizards</span></a>
                         <div class="flex items-center lg:order-2">
                             <a href="#" class="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2">Log in</a><a href="#" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2">Sign up now</a
                             ><button type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
@@ -24,10 +23,10 @@
                         <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                                 <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Home</a></li>
-                                <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Programming Languages</a></li>
-                                <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Frameworks</a></li>
-                                <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Databases</a></li>
-                                <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Server Setups</a></li>
+                                <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Products</a></li>
+                                <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Games</a></li>
+                                <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Services</a></li>
+                                <li><a href="#" class="block py-2 pr-4 pl-3 hover:text-blue-800 text-black rounded lg:bg-transparent lg:p-0" aria-current="page">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -37,8 +36,11 @@
                 <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true"></div>
                 <div class="mx-auto max-w-2xl py-10 sm:py-48 lg:py-10">
                     <div class="text-center">
-                        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">We&#x27;re your one-stop destination for all things tech and programming.</h1>
-                        <p class="mt-6 text-lg leading-8 text-gray-600">Explore programming languages, frameworks, databases, and server setups. Join us in contributing to open source projects and embrace the world of computer science and technology. Let&#x27;s shape a brighter digital future together.</p>
+                        
+                        {% block content %} {% endblock %}
+
+                        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Welcome to ApexWizards</h1>
+                        <p class="mt-6 text-lg leading-8 text-gray-600">Empowering your digital experience</p>
                         <div class="mt-10 flex items-center justify-center gap-x-6">
                             <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up now</a><a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more<span aria-hidden="true">→</span></a>
                         </div>
@@ -49,36 +51,36 @@
         <div class="bg-indigo-600 py-10 sm:py-10">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:text-center">
-                    <h2 class="text-base font-semibold leading-7 text-indigo-200">Enhance your skills</h2>
-                    <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Unlock the world of tech and programming</p>
-                    <p class="mt-6 text-lg leading-8 text-indigo-200">Feature section description</p>
+                    <h2 class="text-base font-semibold leading-7 text-indigo-200">Powerful Development</h2>
+                    <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Unlock the potential of your ideas</p>
+                    <p class="mt-6 text-lg leading-8 text-indigo-200">With ApexWizards, you can bring your software, mobile apps, and indie games to life. Our platform offers a range of features and services to support your development journey.</p>
                 </div>
                 <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
                     <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                         <div class="flex flex-col">
-                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">Programming Languages</dt>
+                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">Mobile Apps</dt>
                             <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-indigo-200">
-                                <p class="flex-auto">Explore a wide range of programming languages to enhance your coding skills.</p>
+                                <p class="flex-auto">Develop and launch high-quality mobile applications for iOS and Android platforms.</p>
                                 <p class="mt-6">
-                                    <a href="#programming-languages" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
+                                    <a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
                                 </p>
                             </dd>
                         </div>
                         <div class="flex flex-col">
-                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">Frameworks</dt>
+                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">Desktop Games</dt>
                             <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-indigo-200">
-                                <p class="flex-auto">Discover popular frameworks to build efficient and scalable applications.</p>
+                                <p class="flex-auto">Create engaging and immersive desktop games for gamers of all ages.</p>
                                 <p class="mt-6">
-                                    <a href="#frameworks" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
+                                    <a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
                                 </p>
                             </dd>
                         </div>
                         <div class="flex flex-col">
-                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">Open Source Projects</dt>
+                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">Web Services</dt>
                             <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-indigo-200">
-                                <p class="flex-auto">Contribute to open source projects and collaborate with developers worldwide.</p>
+                                <p class="flex-auto">Build and deploy scalable web services to support your applications and games.</p>
                                 <p class="mt-6">
-                                    <a href="#open-source-projects" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
+                                    <a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
                                 </p>
                             </dd>
                         </div>
@@ -89,84 +91,84 @@
         <div class="bg-white py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-4xl sm:text-center">
-                    <h2 class="text-base font-semibold leading-7 text-indigo-600">Choose Your Plan</h2>
-                    <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Pricing</p>
+                    <h2 class="text-base font-semibold leading-7 text-indigo-600">Unlock the full potential of your projects</h2>
+                    <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Choose the perfect plan for your needs</p>
                 </div>
-                <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 sm:text-center">Select the plan that suits your needs and start your journey in the world of tech and programming.</p>
+                <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 sm:text-center">With ApexWizards, you can take your software, mobile apps, and indie games to the next level. Whether you&#x27;re a solo developer or a team, our pricing plans offer the flexibility and features you need to succeed.</p>
                 <div class="mt-20 flow-root">
                     <div class="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4">
                         <div class="pt-16 lg:px-8 lg:pt-0 xl:px-14">
-                            <h3 class="text-base font-semibold leading-7 text-gray-900">Basic Plan</h3>
+                            <h3 class="text-base font-semibold leading-7 text-gray-900">Starter Plan</h3>
                             <p class="mt-6 flex items-baseline gap-x-1">
-                                <span class="text-5xl font-bold tracking-tight text-gray-900">$10</span><span class="text-sm font-semibold leading-6 text-gray-600">/<!-- -->month</span>
+                                <span class="text-5xl font-bold tracking-tight text-gray-900">$9.99</span><span class="text-sm font-semibold leading-6 text-gray-600">/<!-- -->month</span>
                             </p>
                             <a href="#" class="mt-10 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-                            <p class="mt-10 text-sm font-semibold leading-6 text-gray-900">Ideal for beginners</p>
+                            <p class="mt-10 text-sm font-semibold leading-6 text-gray-900">Ideal for solo developers and small projects</p>
                             <ul role="list" class="mt-6 space-y-3 text-sm leading-6 text-gray-600">
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Access to programming languages
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Access to all mobile apps and games
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Framework tutorials
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Limited desktop app and game access
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Database guides
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Basic web services
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Server setup assistance
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>AdMob monetization support
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Contribute to open source projects
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Project submission via website
                                 </li>
                             </ul>
                         </div>
                         <div class="pt-16 lg:px-8 lg:pt-0 xl:px-14">
-                            <h3 class="text-base font-semibold leading-7 text-gray-900">Pro Plan</h3>
+                            <h3 class="text-base font-semibold leading-7 text-gray-900">Professional Plan</h3>
                             <p class="mt-6 flex items-baseline gap-x-1">
-                                <span class="text-5xl font-bold tracking-tight text-gray-900">$20</span><span class="text-sm font-semibold leading-6 text-gray-600">/<!-- -->month</span>
+                                <span class="text-5xl font-bold tracking-tight text-gray-900">$19.99</span><span class="text-sm font-semibold leading-6 text-gray-600">/<!-- -->month</span>
                             </p>
                             <a href="#" class="mt-10 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-                            <p class="mt-10 text-sm font-semibold leading-6 text-gray-900">Perfect for intermediate users</p>
+                            <p class="mt-10 text-sm font-semibold leading-6 text-gray-900">Perfect for growing teams and larger projects</p>
                             <ul role="list" class="mt-6 space-y-3 text-sm leading-6 text-gray-600">
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Advanced programming languages
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Access to all mobile apps, games, and desktop apps
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>In-depth framework tutorials
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Advanced web services
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Database optimization techniques
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>AdMob monetization support
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Advanced server setup assistance
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Priority project submission via website
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Contribute to high-impact open source projects
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Collaboration with other developers
                                 </li>
                             </ul>
                         </div>
                         <div class="pt-16 lg:px-8 lg:pt-0 xl:px-14">
-                            <h3 class="text-base font-semibold leading-7 text-gray-900">Advanced Plan</h3>
+                            <h3 class="text-base font-semibold leading-7 text-gray-900">Enterprise Plan</h3>
                             <p class="mt-6 flex items-baseline gap-x-1">
-                                <span class="text-5xl font-bold tracking-tight text-gray-900">$30</span><span class="text-sm font-semibold leading-6 text-gray-600">/<!-- -->month</span>
+                                <span class="text-5xl font-bold tracking-tight text-gray-900">$29.99</span><span class="text-sm font-semibold leading-6 text-gray-600">/<!-- -->month</span>
                             </p>
                             <a href="#" class="mt-10 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-                            <p class="mt-10 text-sm font-semibold leading-6 text-gray-900">For advanced users and professionals</p>
+                            <p class="mt-10 text-sm font-semibold leading-6 text-gray-900">Designed for established businesses and extensive projects</p>
                             <ul role="list" class="mt-6 space-y-3 text-sm leading-6 text-gray-600">
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Cutting-edge programming languages
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Access to all mobile apps, games, desktop apps, and web services
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Expert-level framework tutorials
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Customizable AdMob monetization strategies
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Database performance tuning
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Priority project submission via website
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Customized server setup assistance
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Collaboration with other developers
                                 </li>
                                 <li class="flex gap-x-3">
-                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Lead open source projects and mentor others
+                                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Dedicated support and consultation
                                 </li>
                             </ul>
                         </div>
@@ -177,12 +179,12 @@
         <div class="bg-indigo-600">
             <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
                 <div class="mx-auto max-w-2xl text-center">
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl"><br />Join us in shaping a brighter digital future</h2>
-                    <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-indigo-200">Explore programming languages, frameworks, databases, and server setups. Contribute to open source projects and embrace the world of computer science and technology.</p>
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl"><br />Empower your digital dreams with our cutting-edge software and games</h2>
+                    <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-indigo-200">Welcome to ApexWizards, your one-stop destination for innovative software solutions and captivating games. As a solo developer with a passion for creating exceptional experiences, I have crafted a diverse range of mobile apps, mobile games, desktop apps, desktop games, and web services under the ApexWizards brand. Whether you&#x27;re seeking entertainment, productivity, or utility, we have you covered.</p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get started</a
+                        <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Explore our products</a
                         ><a href="#" class="text-sm font-semibold leading-6 text-white"
-                            >Learn more<!-- -->
+                            >Join our team<!-- -->
                             <span aria-hidden="true">→</span></a
                         >
                     </div>
@@ -203,30 +205,31 @@
                     <div class="mt-10 lg:col-span-7 lg:mt-0">
                         <dl class="space-y-10">
                             <div>
-                                <dt class="text-base font-semibold leading-7 text-gray-900">What programming languages can I learn on your platform?</dt>
-                                <dd class="mt-2 text-base leading-7 text-gray-600">We offer a wide range of programming languages including Python, Java, C++, and JavaScript.</dd>
+                                <dt class="text-base font-semibold leading-7 text-gray-900">What is ApexWizards?</dt>
+                                <dd class="mt-2 text-base leading-7 text-gray-600">ApexWizards is a brand established by a solo developer who has created several software, mobile apps, and indie games. It aims to provide high-quality products and services in the form of mobile apps, mobile games, desktop apps, desktop games, and web services.</dd>
                             </div>
                             <div>
-                                <dt class="text-base font-semibold leading-7 text-gray-900">Do you provide tutorials for beginners?</dt>
-                                <dd class="mt-2 text-base leading-7 text-gray-600">Yes, we have tutorials specifically designed for beginners to help them get started in the world of programming.</dd>
+                                <dt class="text-base font-semibold leading-7 text-gray-900">What is the sub-brand WildBullGames?</dt>
+                                <dd class="mt-2 text-base leading-7 text-gray-600">WildBullGames is a sub-brand of ApexWizards specifically focused on gaming. It offers a range of exciting and immersive gaming experiences for various platforms.</dd>
                             </div>
                             <div>
-                                <dt class="text-base font-semibold leading-7 text-gray-900">Can I contribute to open source projects through your platform?</dt>
-                                <dd class="mt-2 text-base leading-7 text-gray-600">Absolutely! We encourage our users to contribute to open source projects and provide resources to help them get involved.</dd>
+                                <dt class="text-base font-semibold leading-7 text-gray-900">How can I monetize mobile platform games and apps?</dt>
+                                <dd class="mt-2 text-base leading-7 text-gray-600">ApexWizards plans to use AdMob for monetizing mobile platform games and apps. AdMob is a mobile advertising platform that allows developers to earn revenue by displaying ads within their apps.</dd>
                             </div>
                             <div>
-                                <dt class="text-base font-semibold leading-7 text-gray-900">What server setups do you support?</dt>
-                                <dd class="mt-2 text-base leading-7 text-gray-600">We support various server setups including Apache, Nginx, and Microsoft IIS.</dd>
+                                <dt class="text-base font-semibold leading-7 text-gray-900">Will there be any free products or open-source projects?</dt>
+                                <dd class="mt-2 text-base leading-7 text-gray-600">Yes, ApexWizards will offer some products that are free of charge. Additionally, there may be open-source projects available for developers to contribute to and use.</dd>
                             </div>
                             <div>
-                                <dt class="text-base font-semibold leading-7 text-gray-900">How can I embrace the world of computer science and technology through your platform?</dt>
-                                <dd class="mt-2 text-base leading-7 text-gray-600">Our platform offers a wide range of resources and opportunities to explore computer science and technology, including learning materials, forums, and project collaborations.</dd>
+                                <dt class="text-base font-semibold leading-7 text-gray-900">How can I offer a project to ApexWizards?</dt>
+                                <dd class="mt-2 text-base leading-7 text-gray-600">If you have a project you&#x27;d like to offer, you can do so by visiting our website and submitting your project details through the provided contact form.</dd>
                             </div>
                         </dl>
                     </div>
                 </div>
             </div>
         </div>
+        
         
     </body>
 
