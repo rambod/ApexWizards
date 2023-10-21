@@ -5,7 +5,7 @@ from .views import *
 from .views import main
 
 from django.urls import path
-from .views import main , test_page
+from .views import main
 
 
 
@@ -47,5 +47,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('main', main, name="main"),    
     path('', main, name="main"),  
-    path('test/', test_page),  
+    # path('test/', test_page),  
 ]

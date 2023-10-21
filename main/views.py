@@ -6,7 +6,7 @@ def main(request):
 
 from rest_framework import viewsets
 from .models import *
-from serializer import *
+from .serializers import *
 
 class FeatureViewSet(viewsets.ModelViewSet):
     queryset = Feature.objects.all()
