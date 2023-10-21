@@ -1,3 +1,70 @@
+# Register your models here.
 from django.contrib import admin
+from .models import (
+    Feature,
+    VariantImage,
+    Interest,
+    Skill,
+    Category,
+    Product,
+    Cart,
+    CartItem,
+    Order,
+    OrderItem,
+    BlogPost,
+    Comment,
+    Follower,
+    Message,
+    ProjectProposal,
+    ContactSubmission,
+    OpenSourceProject,
+    ProductRating,
+    CommentRating,
+    Device,
+    SerialNumber,
+    UserStorage,
+    Ownership,
+    UserPreferences,
+    UserProfile,
+    ProductVariant,
+    ProductReview,
+    ShippingAddress,
+    WishlistItem,
+    PaymentTransaction,
+    PaymentInformation,
+    Notification,
+)
 
 # Register your models here.
+admin.site.register(Feature)
+admin.site.register(VariantImage)
+admin.site.register(Interest)
+admin.site.register(Skill)
+admin.site.register(Category)
+admin.site.register(Product)
+admin.site.register(Cart)
+admin.site.register(CartItem)
+admin.site.register(Order)
+admin.site.register(OrderItem)
+admin.site.register(BlogPost)
+admin.site.register(Comment)
+admin.site.register(Follower)
+admin.site.register(Message)
+admin.site.register(ProjectProposal)
+admin.site.register(ContactSubmission)
+admin.site.register(OpenSourceProject)
+admin.site.register(ProductRating)
+admin.site.register(CommentRating)
+admin.site.register(Device)
+admin.site.register(SerialNumber)
+admin.site.register(UserStorage)
+admin.site.register(Ownership)
+admin.site.register(UserPreferences)
+admin.site.register(UserProfile)
+admin.site.register(ProductVariant)
+admin.site.register(ProductReview)
+admin.site.register(ShippingAddress)
+admin.site.register(WishlistItem)
+admin.site.register(PaymentTransaction)
+admin.site.register(PaymentInformation)
+admin.site.register(Notification)
